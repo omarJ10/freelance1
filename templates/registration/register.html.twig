@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-screen flex items-center justify-center bg-gray-100">
+  <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+    <h1 class="text-3xl font-semibold mb-6 text-black text-center">Register</h1>
+    <h1 class="text-sm font-semibold mb-6 text-gray-500 text-center">Create your account to join our community.</h1>
+    {% for flash_error in app.flashes('verify_email_error') %}
+      <div class="mb-4 p-2 bg-red-100 text-red-700 rounded">{{ flash_error }}</div>
+    {% endfor %}
+    {{ form_start(registrationForm, {'attr': {}, 'countries': countries|default([])}) }}
+    {{ form_errors(registrationForm) }}
+      <div class="mb-4">
+        {{ form_label(registrationForm.username, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.username, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.username) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.dateOfBirth, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.dateOfBirth, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.dateOfBirth) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.phoneNumber, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.phoneNumber, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.phoneNumber) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.email, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.email, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.email) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.plainPassword, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.plainPassword) }}
+      </div>
+      <div class="mb-4 flex items-center">
+        {{ form_widget(registrationForm.agreeTerms, {'attr': {'class': 'h-4 w-4 text-black focus:ring-black border-gray-300 rounded'}}) }}
+        {{ form_label(registrationForm.agreeTerms, null, {'label_attr': {'class': 'ml-2 block text-sm text-gray-900'}}) }}
+        {{ form_errors(registrationForm.agreeTerms) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.gender, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        <div class="flex gap-4 mt-1">
+          {{ form_widget(registrationForm.gender, {'attr': {'class': 'focus:ring-2 focus:ring-offset-2 focus:ring-gray-300'}}) }}
+        </div>
+        {{ form_errors(registrationForm.gender) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.country, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.country, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.country) }}
+      </div>
+      <div class="mb-4">
+        {{ form_label(registrationForm.address, null, {'label_attr': {'class': 'block text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(registrationForm.address, {'attr': {'class': 'mt-1 p-2 w-full border rounded-md focus:border-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-300 transition-colors duration-300'}}) }}
+        {{ form_errors(registrationForm.address) }}
+      </div>
+      <div>
+        <button type="submit" class="w-full bg-black text-white p-2 rounded-md hover:bg-gray-800 focus:outline-none focus:bg-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 transition-colors duration-300">Register</button>
+      </div>
+    {{ form_end(registrationForm) }}
+    <div class="mt-4 text-sm text-gray-600 text-center">
+      <p>Already have an account? <a href="{{ path('app_login') }}" class="text-black hover:underline">Login here</a></p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Prédiction d'Engagement LinkedIn{% endblock %}
+
+{% block body %}
+    <h1>Prédiction du Taux d'Engagement</h1>
+
+    <form method="post" action="{{ path('app_predictEngagement_linkedin') }}">
+        <label for="post_content">Contenu du Post :</label>
+        <textarea id="post_content" name="post_content" placeholder="Écrivez votre contenu ici..." required>{{ post_content ?? '' }}</textarea>
+        <button type="submit">Prédire l'engagement</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if predicted_comments is not none and predicted_likes is not none and predicted_reposts is not none %}
+        <h2>Résultat :</h2>
+        <p>Commentaires Prédit : <strong>{{ predicted_comments }}</strong></p>
+        <p>Likes Prédit : <strong>{{ predicted_likes }}</strong></p>
+        <p>Reposts Prédit : <strong>{{ predicted_reposts }}</strong></p>
+    {% else %}
+        <p>Aucun engagement prédit.</p>
+    {% endif %}
+
+
+
+{% endblock %}

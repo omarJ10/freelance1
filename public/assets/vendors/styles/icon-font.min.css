@@ -1,0 +1,17 @@
+/* icon-font.min.css */
+
+.icon-copy {
+    display: inline-block;
+}
+
+.dw-user1::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007"; /* User icon */
+    font-weight: 900;
+}
+
+.dw-padlock1::before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f023"; /* Lock icon */
+    font-weight: 900;
+}

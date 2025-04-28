@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Suggestions de Post LinkedIn{% endblock %}
+
+{% block body %}
+    <h1>Suggestions de Post LinkedIn</h1>
+
+    <form method="post" action="{{ path('app_suggestPost_linkedin') }}">
+        <label for="theme">Thème du post :</label>
+        <input type="text" id="theme" name="theme" value="{{ theme ?? '' }}"  required>
+        <button type="submit">Générer des suggestions</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if suggestions is defined and suggestions is not empty %}
+        <h2>Suggestions :</h2>
+        <ul>
+            {% for suggestion in suggestions %}
+                <li>{{ suggestion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucune suggestion disponible.</p>
+    {% endif %}
+
+{% endblock %}

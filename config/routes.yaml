@@ -1,0 +1,51 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+controllers:
+  resource: ../src/Controller/
+  type: annotation
+
+kernel:
+  resource: ../src/Kernel.php
+  type: annotation
+
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+default_redirect:
+  path: /
+  controller: App\Controller\SecurityController::login
+  defaults:
+    route: app_login
+
+predict:
+  path: /predict/facebook
+  controller: App\Controller\PredictionFacebookController::predict
+
+predict_instagram:
+  path: /prediction/instagram
+  controller: App\Controller\PredictionInstagramController::app_prediction_instagram
+
+app_chatbot:
+  path: /chatbot
+  controller: App\Controller\ChatbotController::index
+
+chatbot_response:
+  path: /chatbot/response
+  controller: App\Controller\ChatbotController::getResponse
+  methods: POST
+
+chatbot_history:
+  path: /chatbot/history
+  controller: App\Controller\ChatbotController::getChatHistory
+
+app_flask_suggestpost:
+  path: /linkedin/suggestPost
+  controller: App\Controller\PredictionLinkedInController::suggestPost
+  methods: [POST, GET]
+
+app_flask_predictengagement:
+  path: /linkedin/predictEngagement
+  controller: App\Controller\PredictionLinkedInController::predictEngagement
+  methods: [POST, GET]

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights LinkedIn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+        h2 {
+            color: #0073b1; /* LinkedIn blue */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Insights LinkedIn</h1>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% else %}
+        <div class="card">
+            <h2>Jour optimal pour publier</h2>
+            <p>Le meilleur jour pour publier sur LinkedIn est : <strong>{{ jour_optimal }}</strong></p>
+        </div>
+
+        <div class="card">
+            <h2>Type de contenu le plus performant</h2>
+            <p>Le type de contenu avec le meilleur taux d'engagement est : <strong>{{ type_optimal }}</strong></p>
+        </div>
+    {% endif %}
+</div>
+</body>
+</html>
