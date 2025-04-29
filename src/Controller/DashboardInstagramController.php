@@ -14,7 +14,7 @@ class DashboardInstagramController extends AbstractController
         $user = $this->getUser();
 
         return $this->render('dashboard_instagram/index.html.twig', [
-            'username' => $user->getUsername()
+            //'username' => $user->getUsername()
         ]);
     }
 }

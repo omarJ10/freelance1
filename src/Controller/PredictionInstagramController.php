@@ -71,7 +71,7 @@ class PredictionInstagramController extends AbstractController
         return $this->render('prediction_instagram/index.html.twig', [
             'controller_name' => 'PredictionInstagramController',
             'error' => $error,
-            'username' => $user->getUsername(),
+            //'username' => $user->getUsername(),
             'best_prediction' => $predictionValue,
             'videoDuration' => $videoDuration,
             'isSponsored' => $isSponsored,

@@ -144,18 +144,17 @@ class PredictionLinkedInController extends AbstractController
             $error = "Erreur lors de l'exécution : " . $e->getMessage();
         }
         $user = $this->getUser();
+        $username = $user ? $user->getUsername() : null;$user = $this->getUser();
 
         // Retourner les résultats au template Twig
         return $this->render('prediction_linked_in/index.html.twig', [
             'theme' => $theme,
-            'username' => $user->getUsername(),
+            'username' => $username,
             'suggestions' => $suggestions,
             'post_content' => $postContent,
             'predicted_comments' => $predictedComments,
             'predicted_likes' => $predictedLikes,
             'predicted_reposts' => $predictedReposts,
-            /*'jour_optimal' => $insights['jour_optimal'],
-            'type_optimal' => $insights['type_optimal'],*/
             'error' => $error,
         ]);
     }

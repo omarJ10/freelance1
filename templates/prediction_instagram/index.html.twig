@@ -179,10 +179,10 @@
             </div>
 
             {% if best_prediction %}
-                <div class="alert {{ best_prediction == 'High' ? 'alert-success' : best_prediction == 'Meduim' ? 'alert-primary' : 'alert-danger' }}">
+                <div class="alert {{ best_prediction == 'High' ? 'alert-success' : best_prediction == 'Medium' ? 'alert-primary' : 'alert-danger' }}">
                     {% if best_prediction == 'High' %}
                         🎉 Potentiel <strong>élevé</strong> de likes/commentaires.
-                    {% elseif best_prediction == 'Meduim' %}
+                    {% elseif best_prediction == 'Medium' %}
                         ℹ️ Potentiel <strong>moyen</strong>, améliorez un peu.
                     {% else %}
                         ⚠️ Potentiel <strong>faible</strong>, reconsidérez timing/contenu.

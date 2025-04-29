@@ -13,7 +13,7 @@
     <style>
         :root {
             --bs-primary: #ab3567;
-            --bs-secondary: #FFE4E1	;
+            --bs-secondary: #FFE4E1;
             --bs-light: ;
             --bs-dark: #212529;
         }
@@ -133,12 +133,12 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-white p-2 mb-0">
                         <li class="breadcrumb-item"><a href="{{ path('app_admin') }}">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{ path('app_prediction_linkedin') }}" style="color: var(--bs-primary);">Prediction</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">LinkedIn</li>
+                        <li class="breadcrumb-item active" aria-current="page">Prediction LinkedIn</li>
                     </ol>
                 </nav>
             </div>
 
+            <!-- Suggestions Block -->
             <div class="card p-4 mb-4">
                 <h5 class="mb-3">Suggestions de Post LinkedIn</h5>
                 <form method="post" action="{{ path('app_prediction_linkedin') }}">
@@ -164,6 +164,7 @@
                 {% endif %}
             </div>
 
+            <!-- Prediction Engagement Block -->
             <div class="card p-4">
                 <h5 class="mb-3">Prédiction d'Engagement LinkedIn</h5>
                 <form method="post" action="{{ path('app_prediction_linkedin') }}">
@@ -175,18 +176,20 @@
                     </div>
                 </form>
 
-                {% if predicted_comments is not none and predicted_likes is not none and predicted_reposts is not none %}
+                {% if predicted_comments is not null and predicted_likes is not null and predicted_reposts is not null %}
                     <div class="mt-4">
-                        <h6>Résultats :</h6>
-                        <p>Commentaires prédits : <strong>{{ predicted_comments }}</strong></p>
-                        <p>Likes prédits : <strong>{{ predicted_likes }}</strong></p>
-                        <p>Reposts prédits : <strong>{{ predicted_reposts }}</strong></p>
+                        <h6>Résultats de l'Engagement :</h6>
+                        <ul class="list-group">
+                            <li class="list-group-item">Commentaires prédits : <strong>{{ predicted_comments }}</strong></li>
+                            <li class="list-group-item">Likes prédits : <strong>{{ predicted_likes }}</strong></li>
+                            <li class="list-group-item">Reposts prédits : <strong>{{ predicted_reposts }}</strong></li>
+                        </ul>
                     </div>
                 {% endif %}
-
             </div>
 
         </main>
+
     </div>
 </div>
 
