@@ -132,8 +132,9 @@
                 <h4 class="mb-0">LinkedIn Prediction</h4>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb bg-white p-2 mb-0">
-                        <li class="breadcrumb-item"><a href="{{ path('app_admin') }}">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ path('app_admin') }}" style="color: #f4c542;text-decoration: none;">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Prediction LinkedIn</li>
+
                     </ol>
                 </nav>
             </div>
@@ -147,7 +148,10 @@
                             <input type="text" class="form-control" name="theme" placeholder="Entrez un thème..." value="{{ theme ?? '' }}" required>
                         </div>
                         <div class="col-md-4 text-end">
-                            <button type="submit" class="btn btn-primary">Générer Suggestions</button>
+
+                            <button type="submit" class="btn" style="background-color: #f4c542; border-color: #f4c542; color: #212529;">
+                                Générer Suggestions
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -172,7 +176,10 @@
                         <textarea class="form-control" name="post_content" placeholder="Écrivez votre post ici..." rows="5" required>{{ post_content ?? '' }}</textarea>
                     </div>
                     <div class="text-end">
-                        <button type="submit" class="btn btn-primary">Prédire l'Engagement</button>
+
+                        <button type="submit" class="btn" style="background-color: #f4c542; border-color: #f4c542; color: #212529;">
+                            Prédire l'Engagement
+                        </button>
                     </div>
                 </form>
 

@@ -113,10 +113,13 @@
         </div>
 
         <div class="mb-3">
-          {{ form_label(registrationForm.gender, null, {'label_attr': {'class': 'form-label'}}) }}
-          <div class="d-flex gap-2">
-            {{ form_widget(registrationForm.gender, {'attr': {'class': 'form-check-input'}}) }}
-          </div>
+          <label class="form-label">Gender</label>
+          {% for choice in registrationForm.gender %}
+            <div class="form-check">
+              {{ form_widget(choice, {'attr': {'class': 'form-check-input'}}) }}
+              {{ form_label(choice, null, {'label_attr': {'class': 'form-check-label'}}) }}
+            </div>
+          {% endfor %}
           {{ form_errors(registrationForm.gender) }}
         </div>
 
