@@ -1,0 +1,15 @@
+<h1>Login Notification</h1>
+
+<p>Hello {{ user.username }},</p>
+
+<p>We detected a new login to your account on {{ loginTime|date('F j, Y, g:i a') }}.</p>
+
+<p>If this was you, you can safely ignore this email.</p>
+
+<p>If you did not log in at this time, please contact us immediately or reset your password using the link below:</p>
+
+<a href="{{ url('app_forgot_password_request') }}">Reset Your Password</a>
+
+<p>Thank you for using our service!</p>
+
+<p>Regards,<br>The Team</p>

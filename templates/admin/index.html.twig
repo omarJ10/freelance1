@@ -90,7 +90,15 @@
             <form class="d-flex me-3">
                 <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
             </form>
-            <img src="{{ asset('assets/vendors/images/1.png') }}" alt="User" class="rounded-circle" width="40">
+            <div class="dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <i class="fas fa-user fa-lg rounded-circle" style="color: white; width: 40px; height: 40px; line-height: 40px; text-align: center;"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="{{ path('edit_profile') }}">Edit Profile</a></li>
+                    <li><a class="dropdown-item" href="{{ path('app_logout') }}">Logout</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </nav>
